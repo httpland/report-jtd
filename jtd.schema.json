@@ -1,0 +1,134 @@
+{
+  "oneOf": [
+    {
+      "title": "The empty form",
+      "description": "The empty form is meant to describe instances whose values are unknown, unpredictable, or otherwise unconstrained by the schema.",
+      "type": "object",
+      "properties": {},
+      "maxProperties": 0
+    },
+    {
+      "title": "The ref form",
+      "description": "The ref form is for when a schema is defined in terms of something in the 'definitions' of the root schema.",
+      "type": "object",
+      "properties": { "ref": { "type": "string" } },
+      "required": ["ref"]
+    },
+    {
+      "title": "The type form",
+      "description": "The type form is meant to describe instances whose value is a boolean, number, string, or timestamp.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "boolean",
+            "string",
+            "timestamp",
+            "float32",
+            "float64",
+            "int8",
+            "uint8",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32"
+          ]
+        }
+      },
+      "required": ["type"]
+    },
+    {
+      "title": "The enum form",
+      "description": "The enum form is meant to describe instances whose value must be one of a given set of string values.",
+      "type": "object",
+      "properties": {
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["enum"]
+    },
+    {
+      "title": "The elements form",
+      "description": "The elements form is meant to describe instances that must be arrays.",
+      "type": "object",
+      "properties": {
+        "elements": {
+          "type": "object",
+          "$ref": "#"
+        }
+      },
+      "required": ["elements"]
+    },
+    {
+      "title": "The properties form",
+      "description": "The properties form is meant to describe JSON objects being used as a 'struct'.",
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "$ref": "#"
+            }
+          }
+        },
+        "optionalProperties": {
+          "title": "Optional properties",
+          "description": "Optional properties definition.",
+          "type": "object",
+          "patternProperties": {
+            ".*": {
+              "$ref": "#"
+            }
+          }
+        },
+        "additionalProperties": {
+          "title": "Additional properties mode",
+          "description": "Whether the enable allow additional properties mode or not.",
+          "type": "boolean"
+        }
+      },
+      "required": ["properties"]
+    },
+    {
+      "title": "The values form",
+      "description": "The values form is meant to describe instances that are JSON objects being used as an associative array.",
+      "type": "object",
+      "properties": {
+        "values": {
+          "$ref": "#"
+        }
+      },
+      "required": ["values"]
+    },
+    {
+      "title": "The discriminator form",
+      "description": "The discriminator form is meant to describe JSON objects being used in a fashion similar to a discriminated union construct in C-like languages.",
+      "type": "object",
+      "properties": {
+        "discriminator": { "type": "string" },
+        "mapping": {
+          "type": "object",
+          "patternProperties": {
+            ".*": { "$ref": "#" }
+          }
+        }
+      },
+      "required": ["discriminator", "mapping"]
+    }
+  ],
+  "properties": {
+    "nullable": { "type": "boolean" },
+    "metadata": { "type": "object", "title": "metadata" },
+    "definitions": {
+      "type": "object",
+      "patternProperties": {
+        ".*": { "$ref": "#" }
+      }
+    }
+  }
+}

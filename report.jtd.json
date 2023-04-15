@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "description": "A report is a collection of arbitrary data which the user agent is expected to deliver to a specified endpoint."
+  },
+  "properties": {
+    "age": {
+      "type": "float32",
+      "metadata": {
+        "description": "The number of milliseconds between report’s timestamp and the current time."
+      }
+    },
+    "type": {
+      "type": "string",
+      "metadata": {
+        "description": "Report type."
+      }
+    },
+    "url": {
+      "type": "string",
+      "metadata": {
+        "description": "URL is the address of the `Document` or `Worker` from which the report was generated."
+      }
+    },
+    "user_agent": {
+      "type": "string",
+      "metadata": {
+        "description": "Value of the `User-Agent` header of the request."
+      }
+    },
+    "body": {
+      "nullable": true,
+      "values": {
+        "properties": {}
+      },
+      "metadata": {
+        "description": "Report body"
+      }
+    }
+  }
+}
