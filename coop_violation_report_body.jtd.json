@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "description": "Cross-origin opener policy violation body."
+  },
+  "definitions": {
+    "disposition": {
+      "enum": ["enforce", "reporting"]
+    },
+    "coep-value": {
+      "metadata": {
+        "description": "A cross-origin opener policy value allows a document which is navigated to in a top-level browsing context to force the creation of a new top-level browsing context, and a corresponding group.",
+        "enumDescription": {
+          "unsafe-none": "The document will occupy the same top-level browsing context as its predecessor, unless that document specified a different cross-origin opener policy.",
+          "same-origin-allow-popups": "The creation of a new top-level browsing context for the document, unless its predecessor specified the same cross-origin opener policy and they are same origin.",
+          "same-origin": "Same as \"same-origin-allow-popups\", with the addition that any auxiliary browsing context created needs to contain same origin documents that also have the same cross-origin opener policy or it will appear closed to the opener.",
+          "same-origin-plus-coep": "Same as 'same-origin', with the addition that it sets the (new) top-level browsing context's group's cross-origin isolation mode to one of \"logical\" or \"concrete\"."
+        }
+      },
+      "enum": [
+        "unsafe-none",
+        "same-origin",
+        "same-origin-allow-popups",
+        "same-origin-plus-coep"
+      ]
+    },
+    "referrer": {
+      "metadata": {
+        "description": "Document referrer."
+      },
+      "type": "string"
+    }
+  },
+  "discriminator": "type",
+
+  "mapping": {
+    "navigation-to-response": {
+      "properties": {
+        "disposition": {
+          "ref": "disposition"
+        },
+        "effectivePolicy": {
+          "ref": "coep-value"
+        },
+        "previousResponseURL": {
+          "type": "string",
+          "nullable": true
+        },
+        "referrer": {
+          "ref": "referrer"
+        }
+      }
+    },
+    "navigation-from-response": {
+      "properties": {
+        "disposition": {
+          "ref": "disposition"
+        },
+        "effectivePolicy": {
+          "ref": "coep-value"
+        },
+        "nextResponseURL": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    },
+    "access-to-opener": {
+      "properties": {
+        "disposition": {
+          "enum": ["reporting"]
+        },
+        "effectivePolicy": {
+          "ref": "coep-value"
+        },
+        "property": {
+          "metadata": {
+            "description": "Property name."
+          },
+          "type": "string"
+        }
+      },
+      "optionalProperties": {
+        "openerURL": {
+          "type": "string",
+          "nullable": true
+        },
+        "referrer": {
+          "ref": "referrer"
+        },
+        "openedWindowURL": {
+          "type": "string",
+          "nullable": true
+        },
+        "openedWindowInitialURL": {
+          "type": "string",
+          "nullable": true
+        },
+        "otherURL": {
+          "type": "string",
+          "nullable": true
+        },
+        "sourceFile": {
+          "type": "string"
+        },
+        "lineNumber": {
+          "metadata": {
+            "description": "The line number in sourceFile of the offending behavior."
+          },
+          "type": "uint32"
+        },
+        "columnNumber": {
+          "metadata": {
+            "description": "The column number in sourceFile of the offending behavior."
+          },
+          "type": "uint32"
+        }
+      }
+    }
+  }
+}
