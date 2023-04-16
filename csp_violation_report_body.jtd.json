@@ -1,65 +1,71 @@
 {
+  "metadata": {
+    "description": "Content security policy violation report body."
+  },
   "properties": {
     "documentURL": {
-      "type": "string",
       "metadata": {
         "description": "Violation's URL."
-      }
+      },
+      "type": "string"
     },
-    "effectiveDirective": {
-      "type": "string",
-      "metadata": {
-        "description": "Violation's effective directive."
-      }
-    },
-    "originalPolicy": {
-      "type": "string",
-      "metadata": {
-        "description": "The serialization of violation's policy."
-      }
-    },
-    "statusCode": {
-      "type": "uint16",
-      "metadata": { "description": "Violation's status." }
-    },
-    "disposition": {
-      "enum": ["enforce", "report"],
-      "metadata": {
-        "description": "The disposition of violation's policy."
-      }
-    }
-  },
-  "optionalProperties": {
     "referrer": {
-      "type": "string",
       "metadata": {
         "description": "Violation's referrer."
-      }
+      },
+      "type": "string",
+      "nullable": true
     },
     "blockedURL": {
-      "type": "string",
       "metadata": {
         "description": "Violation's resource."
-      }
-    },
-    "sourceFile": { "type": "string" },
-    "sample": {
+      },
       "type": "string",
+      "nullable": true
+    },
+    "effectiveDirective": {
+      "metadata": {
+        "description": "Violation's effective directive."
+      },
+      "type": "string"
+    },
+    "originalPolicy": {
+      "metadata": {
+        "description": "The serialization of violation's policy."
+      },
+      "type": "string"
+    },
+    "sourceFile": { "type": "string", "nullable": true },
+    "sample": {
       "metadata": {
         "description": "Violation's sample"
-      }
+      },
+      "type": "string",
+      "nullable": true
+    },
+    "disposition": {
+      "metadata": {
+        "description": "The disposition of violation's policy."
+      },
+      "enum": ["enforce", "report"]
+    },
+    "statusCode": {
+      "metadata": { "description": "Violation's status." },
+      "type": "uint16"
     },
     "lineNumber": {
-      "type": "uint32",
       "metadata": {
         "description": "Violation's line number"
-      }
+      },
+      "type": "uint32",
+      "nullable": true
     },
     "columnNumber": {
-      "type": "uint32",
       "metadata": {
         "description": "Violation's column number"
-      }
+      },
+      "type": "uint32",
+      "nullable": true
     }
   }
 }
