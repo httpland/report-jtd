@@ -28,8 +28,7 @@
   "json.schemas": [
     {
       "fileMatch": [
-        "/csp_violation.jtd.json",
-        "/report.jtd.json"
+        "/*.jtd.json"
       ],
       "url": "./jtd.schema.json"
     }
