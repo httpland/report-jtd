@@ -8,10 +8,16 @@ report.
 
 ## Members
 
-Provides the JTD for the following reports:
+Provides the JTD for the following:
 
-- [Common](https://w3c.github.io/reporting/#serialize-reports)
+- [Report](https://w3c.github.io/reporting/#serialize-reports)
+
+### Report body
+
+- [Crash](https://wicg.github.io/crash-reporting/)
 - [CSP violation](https://www.w3.org/TR/CSP3/#reporting)
+- [Deprecation](https://wicg.github.io/deprecation-reporting/)
+- [Intervention](https://wicg.github.io/intervention-reporting/)
 
 ## License
 
