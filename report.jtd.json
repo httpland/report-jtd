@@ -29,7 +29,7 @@
     },
     "body": {
       "metadata": {
-        "description": "Report body"
+        "description": "Report body."
       },
       "values": {
         "properties": {}
