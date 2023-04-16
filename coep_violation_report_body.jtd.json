@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "description": "Cross-origin embedder policy violation report body."
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "blockedURL": {
+      "metadata": {
+        "description": "Endpoint URL."
+      },
+      "type": "string"
+    },
+    "disposition": {
+      "enum": ["enforce", "reporting"]
+    }
+  }
+}
