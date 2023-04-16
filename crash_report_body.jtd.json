@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "description": "Crash report indicates that the user was unable to continue using the page because the browser crashed."
+  },
+  "properties": {
+    "reason": {
+      "metadata": {
+        "description": "A more specific classification of the type of crash.",
+        "enumDescription": {
+          "oom": "The page ran out of memory.",
+          "unresponsive": "The page was killed due to being unresponsive."
+        }
+      },
+      "enum": ["oom", "unresponsive"],
+      "nullable": true
+    }
+  }
+}
