@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "description": "Deprecation report indicate that a browser API or feature has been used which is expected to stop working in a future update to the browser."
+  },
+  "properties": {
+    "id": {
+      "metadata": { "description": "Group ID for counting related reports." },
+      "type": "string"
+    },
+    "message": {
+      "metadata": {
+        "description": "A human-readable string with details typically matching what would be displayed on the developer console."
+      },
+      "type": "string"
+    },
+    "anticipatedRemoval": {
+      "metadata": {
+        "description": "ISO 8601 date string indicating roughly when the browser version without the specified API will be generally available."
+      },
+      "type": "string",
+      "nullable": true
+    },
+    "sourceFile": {
+      "metadata": {
+        "description": "The file which first used the indicated API."
+      },
+      "type": "string",
+      "nullable": true
+    },
+    "lineNumber": {
+      "metadata": {
+        "description": "The line number in sourceFile of the offending behavior."
+      },
+      "type": "uint32",
+      "nullable": true
+    },
+    "columnNumber": {
+      "metadata": {
+        "description": "The column number in sourceFile of the offending behavior."
+      },
+      "type": "uint32",
+      "nullable": true
+    }
+  }
+}
