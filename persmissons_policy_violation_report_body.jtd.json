@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "description": "Permissions policy violation report body."
+  },
+  "properties": {
+    "featureId": {
+      "metadata": {
+        "description": "Policy-controlled feature ID what can be used for grouping and counting related reports."
+      },
+      "type": "string"
+    },
+    "disposition": {
+      "metadata": {
+        "description": "Whether the violated permissions policy was enforced.",
+        "enumDescription": {
+          "enforce": "Policy was enforced.",
+          "report": "The violation resulted only in this report being generated."
+        }
+      },
+      "enum": ["enforce", "report"]
+    },
+    "sourceFile": {
+      "type": "string",
+      "nullable": true
+    },
+    "lineNumber": {
+      "metadata": {
+        "description": "The line number in sourceFile of the offending behavior."
+      },
+      "type": "int32",
+      "nullable": true
+    },
+    "columnNumber": {
+      "metadata": {
+        "description": "The column number in sourceFile of the offending behavior."
+      },
+      "type": "int32",
+      "nullable": true
+    }
+  }
+}
