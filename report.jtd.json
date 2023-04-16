@@ -4,37 +4,37 @@
   },
   "properties": {
     "age": {
-      "type": "float32",
       "metadata": {
-        "description": "The number of milliseconds between report’s timestamp and the current time."
-      }
+        "description": "The number of milliseconds between report's timestamp and the current time."
+      },
+      "type": "float32"
     },
     "type": {
-      "type": "string",
       "metadata": {
         "description": "Report type."
-      }
+      },
+      "type": "string"
     },
     "url": {
-      "type": "string",
       "metadata": {
         "description": "URL is the address of the `Document` or `Worker` from which the report was generated."
-      }
+      },
+      "type": "string"
     },
     "user_agent": {
-      "type": "string",
       "metadata": {
         "description": "Value of the `User-Agent` header of the request."
-      }
+      },
+      "type": "string"
     },
     "body": {
-      "nullable": true,
+      "metadata": {
+        "description": "Report body"
+      },
       "values": {
         "properties": {}
       },
-      "metadata": {
-        "description": "Report body"
-      }
+      "nullable": true
     }
   }
 }
