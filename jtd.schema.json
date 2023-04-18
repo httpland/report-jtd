@@ -4,7 +4,6 @@
       "title": "The empty form",
       "description": "The empty form is meant to describe instances whose values are unknown, unpredictable, or otherwise unconstrained by the schema.",
       "type": "object",
-      "properties": {},
       "maxProperties": 0
     },
     {
@@ -46,7 +45,9 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1,
+          "uniqueItems": true
         }
       },
       "required": ["enum"]
@@ -89,7 +90,8 @@
         "additionalProperties": {
           "title": "Additional properties mode",
           "description": "Whether the enable allow additional properties mode or not.",
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         }
       },
       "required": ["properties"]
